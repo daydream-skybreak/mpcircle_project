@@ -1,0 +1,86 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "alice@example.com",
+      "name": "Alice Johnson",
+      "createdAt": "2025-01-01T10:00:00.000Z",
+      "updatedAt": "2025-01-01T10:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "email": "bob@example.com",
+      "name": "Bob Smith",
+      "createdAt": "2025-01-02T14:30:00.000Z",
+      "updatedAt": "2025-01-02T14:30:00.000Z"
+    }
+  ],
+
+  "categories": [
+    {
+      "id": 1,
+      "name": "Electronics",
+      "createdAt": "2025-01-01T09:00:00.000Z",
+      "updatedAt": "2025-01-01T09:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "name": "Books",
+      "createdAt": "2025-01-01T09:05:00.000Z",
+      "updatedAt": "2025-01-01T09:05:00.000Z"
+    },
+    {
+      "id": 3,
+      "name": "Clothing",
+      "createdAt": "2025-01-01T09:10:00.000Z",
+      "updatedAt": "2025-01-01T09:10:00.000Z"
+    }
+  ],
+
+  "products": [
+    {
+      "id": 1,
+      "name": "Wireless Headphones",
+      "description": "Noise-cancelling over-ear headphones",
+      "imageUrl": "https://example.com/images/headphones.jpg",
+      "price": 199.99,
+      "inventory": 42,
+      "categoryId": 1,
+      "createdAt": "2025-01-03T08:00:00.000Z",
+      "updatedAt": "2025-01-03T08:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "name": "Mechanical Keyboard",
+      "description": "RGB backlit mechanical keyboard",
+      "imageUrl": "https://example.com/images/keyboard.jpg",
+      "price": 129.99,
+      "inventory": 18,
+      "categoryId": 1,
+      "createdAt": "2025-01-03T09:00:00.000Z",
+      "updatedAt": "2025-01-03T09:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "name": "JavaScript for Professionals",
+      "description": "Advanced concepts and patterns",
+      "imageUrl": null,
+      "price": 39.99,
+      "inventory": 100,
+      "categoryId": 2,
+      "createdAt": "2025-01-04T11:00:00.000Z",
+      "updatedAt": "2025-01-04T11:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "name": "Basic T-Shirt",
+      "description": null,
+      "imageUrl": "https://example.com/images/tshirt.jpg",
+      "price": 19.99,
+      "inventory": 250,
+      "categoryId": 3,
+      "createdAt": "2025-01-05T15:00:00.000Z",
+      "updatedAt": "2025-01-05T15:00:00.000Z"
+    }
+  ]
+}

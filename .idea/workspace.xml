@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6f66a917-3d38-4722-903a-9db6adeba601" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/src/product/product.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app/api/product.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app/products/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app/providers.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/Filters.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/components/ProductCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/backend/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/category/category.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/prisma/seed.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/category/category.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/prisma/prisma.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/prisma/prisma.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/product/dtos/createProduct.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/product/dtos/createProduct.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/product/dtos/updateProduct.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/product/dtos/updateProduct.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/product/product.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/product/product.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/product/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/product/product.service.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+    <option name="myAllFileTypesSelected" value="false" />
+    <option name="mySelectedFileTypes">
+      <set>
+        <option value="Prisma" />
+      </set>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="37qQE2izLdDQ0bp7ocemwZaZdC8" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/HP/Desktop/personal_stuff/mpcircle",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\HP\\Desktop\\personal_stuff\\mpcircle\\backend\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Users\\HP\\Desktop\\personal_stuff\\mpcircle\\backend\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\HP\Desktop\personal_stuff\mpcircle\frontend\app" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-WS-252.23892.411" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6f66a917-3d38-4722-903a-9db6adeba601" name="Changes" comment="" />
+      <created>1767628005359</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1767628005359</updated>
+      <workItem from="1767628006579" duration="682000" />
+      <workItem from="1767647531647" duration="3295000" />
+      <workItem from="1767700924300" duration="14704000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/frontend/app/providers.tsx</url>
+          <line>15</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
