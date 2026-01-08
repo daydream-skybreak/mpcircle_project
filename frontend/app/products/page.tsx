@@ -1,46 +1,38 @@
-'use client';
+"use client";
 import {useMutation, useQuery, useQueryClient} from '@tanstack/react-query'
 
 import {ProductCard} from "@/components/ProductCard";
-import {fetchProducts, fetchProductById} from "@/app/api/product";
 import {Filters} from "@/components/Filters";
 import Header from "@/components/Header";
-import {useSearchParams} from "next/navigation";
-import * as querystring from "node:querystring";
-import {useState} from "react";
+import { Product } from '@/types';
 
 export default function ProductsPage (){
-    const searchParams = useSearchParams();
-    let querystring = searchParams.get('category')
-    const [categoryId, setCategoryId] = useState<number|null>(null);
     const queryClient = useQueryClient();
     const {data, isLoading, error} = useQuery({
         queryKey: ['products'],
         queryFn: async () => {
-            const resData = await fetch('/api/products' + (querystring ? `?category=${querystring}` : '')).then(res => res.json())
-            return resData;
+            return fetch('/api/products').then(res => res.json())
         },
     });
 
     const selectCategoryMutation = useMutation({
-        mutationFn: async (categoryId: number) => {
+        mutationFn: async (categoryId: number|null) => {
             return fetch('/api/products' + (categoryId ? `?category=${categoryId}` : '')).then(res => res.json());
         },
 
-        onMutate: async (categoryId) => {
-            // Cancel outgoing product queries
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        onMutate: async (_categoryId) => {
             await queryClient.cancelQueries({ queryKey: ['products'] });
 
-            // Snapshot previous products
             const previousProducts = queryClient.getQueryData(['products']);
 
-            // Optimistically update UI
             queryClient.setQueryData(['products'], []);
 
             return { previousProducts };
         },
 
-        onSuccess: (data, categoryId) => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        onSuccess: (data, _categoryId) => {
             // Replace optimistic data with real data
             queryClient.setQueryData(['products'], data);
         },
@@ -57,7 +49,7 @@ export default function ProductsPage (){
     if (error) {
         return <div>Error: {(error as Error).message}</div>;
     }
-    const products = data?.map((product) => {
+    const products = data?.map((product: Product) => {
         return <ProductCard key={product.id} product={product} />
     });
     return <div className={`w-full p-1`}>

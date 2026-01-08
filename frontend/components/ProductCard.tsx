@@ -1,12 +1,5 @@
 import Image from "next/image";
-
-type Product = {
-    id: number;
-    name: string;
-    imageUrl?: string | null;
-    price: number;
-    inventory: number;
-}
+import { Product } from "@/types";
 
 export const ProductCard = ({product, onAddToCart}: { product: Product, onAddToCart?: (p: Product) => void }) => {
     const handleAdd = () => {

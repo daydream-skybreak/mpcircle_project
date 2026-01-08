@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 
 type Category = { id: number; name: string };
 
+// @ts-ignore
 export const Filters = ({updateData}) => {
     const [filterList, setFilterList] = useState<Category[]>([])
     const [loading, setLoading] = useState(false)
