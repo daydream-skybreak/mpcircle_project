@@ -7,13 +7,17 @@ export class ProductService {
 
   findAll(category?: number): any {
     return this.prismaService.product.findMany({
-      where: category ? { categoryId: category } : {},
+      where: category
+        ? typeof category === 'string'
+          ? { categoryId: Number.parseInt(category) }
+          : { categoryId: category }
+        : {},
     });
   }
 
-  findOne(id: number){
+  findOne(id){
     return this.prismaService.product.findUnique({
-      where: { id },
+      where: { id: typeof id === 'string'? Number.parseInt(id): id },
     });
   }
 }
