@@ -5,11 +5,18 @@ import {ProductCard} from "@/components/ProductCard";
 import {fetchProducts, fetchProductById} from "@/app/api/product";
 import {Filters} from "@/components/Filters";
 import Header from "@/components/Header";
+import {useSearchParams} from "next/navigation";
+import * as querystring from "node:querystring";
 
 export default function ProductsPage (){
+    const searchParams = useSearchParams();
+    let querystring = searchParams.get('category')
     const {data, isLoading, error} = useQuery({
         queryKey: ['products'],
-        queryFn: fetchProducts
+        queryFn: async () => {
+            const resData = await fetch('/api/products' + (querystring ? `?category=${querystring}` : '')).then(res => res.json())
+            return resData;
+        },
     });
 
     if (isLoading) {
