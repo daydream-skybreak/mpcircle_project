@@ -1,98 +1,113 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# MPCircle — Backend
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This repository contains the backend for the MPCircle application (NestJS + Prisma). This README is written for other developers who want to set up, run, test, and contribute to the project locally.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+> Quick summary: a NestJS API using Prisma to talk to a PostgreSQL database. The Prisma seed script (prisma/seed.ts) creates 4 categories and at least 22 products (each product has inventory > 10) and is safe to run multiple times.
 
-## Description
+Table of contents
+- Project overview
+- Tech stack
+- Prerequisites
+- Environment variables
+- Local setup
+  - Install dependencies
+  - Database: create & migrate
+  - Generate Prisma client
+  - Seeding the database
+- Running the application
+- Running tests & lint
+- Seed details and idempotency
+- Troubleshooting
+- Contributing
+- Contact
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Project setup
+Project overview
+----------------
+This service is a NestJS backend exposing endpoints to manage users, products, categories, and sales. Prisma is used as the ORM against a PostgreSQL database. The included Prisma seed script populates categories and products for local development and testing.
 
-```bash
-$ npm install
-```
+Tech stack
+----------
+- Node.js
+- NestJS
+- TypeScript
+- Prisma ORM
+- PostgreSQL
+- Jest (tests)
 
-## Compile and run the project
+Prerequisites
+-------------
+- Node.js (LTS recommended)
+- npm (bundled with Node) or yarn
+- A running PostgreSQL instance and a valid connection URL
 
-```bash
-# development
-$ npm run start
+Environment variables
+---------------------
+Create a `.env` file in the repository root (same directory as package.json). At minimum set:
 
-# watch mode
-$ npm run start:dev
+DATABASE_URL=postgresql://USER:PASSWORD@HOST:PORT/DATABASE
 
-# production mode
-$ npm run start:prod
-```
+Replace USER/PASSWORD/HOST/PORT/DATABASE with your PostgreSQL credentials.
 
-## Run tests
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+Local setup
+-----------
+1. Install dependencies
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+npm install
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+2. Ensure your `.env` exists and `DATABASE_URL` points to a reachable PostgreSQL database.
 
-## Resources
+3. Generate the Prisma client (required after updating the schema):
 
-Check out a few resources that may come in handy when working with NestJS:
+```bash
+npx prisma generate
+```
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+4. Run migrations
 
-## Support
+- For local development (creates or applies migrations and updates the local DB):
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```bash
+npx prisma migrate dev
+```
 
-## Stay in touch
+- For CI / production deployments (apply existing migrations):
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```bash
+npx prisma migrate deploy
+```
 
-## License
+5. Seed the database
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+The project has a TypeScript seed script at `prisma/seed.ts`. It:
+- Upserts 4 categories: `Electronics`, `Clothing`, `Home`, `Books`.
+- Creates 22 products (grouped into these 4 categories) with `inventory` set > 10.
+- Uses `createMany({ skipDuplicates: true })` so it is idempotent.
+- The seed file uses `@prisma/adapter-pg` and `pg` to create a pool-based adapter for the Prisma client.
+
+You can run the seed script directly with ts-node (devDependencies include `ts-node`):
+
+```bash
+npx ts-node prisma/seed.ts
+```
+
+Or, if you'd prefer to hook it into Prisma's native seeding mechanism, you can update `package.json` and `prisma/schema.prisma`'s `seed` config to run the compiled script or a Node entry point. The current project does not rely on the prisma "db seed" config by default.
+
+
+Running the application
+-----------------------
+- Start in development (watch mode):
+
+```bash
+npm run start:dev
+```
+
+- Build and run a production build:
+
+```bash
+npm run build
+npm run start:prod
+```
+
