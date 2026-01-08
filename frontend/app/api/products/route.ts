@@ -5,7 +5,7 @@ export async function GET(req: Request) {
     const category = searchParams.get('category');
 
     const backendUrl =
-        `http://localhost:3000/products` +
+        process.env.API_BASEURL + 'products' +
         (category ? `?category=${category}` : '');
 
     const res = await fetch(backendUrl);
